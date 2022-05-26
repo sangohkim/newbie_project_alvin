@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "192594606153",
+    "project_id": "fir-tposhare",
+    "storage_bucket": "fir-tposhare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192594606153:android:c2013634800ce6213ba798",
+        "android_client_info": {
+          "package_name": "com.example.tposhare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "192594606153-rpq1om79taitbmg6t9v69iu0lkd0h86j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB69j7IH1ZK6LTgPXc69hlqTCawvIl7eWY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "192594606153-rpq1om79taitbmg6t9v69iu0lkd0h86j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
