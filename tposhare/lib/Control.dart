@@ -5,9 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutterfire_ui/auth.dart';
 
 import 'package:tposhare/body_My.dart';
-import 'package:tposhare/body_Search.dart';
 import 'package:tposhare/body_Polls.dart';
-import 'package:tposhare/body_Done.dart';
 import 'package:tposhare/body_Home.dart';
 
 class Control extends StatefulWidget {
@@ -22,9 +20,7 @@ class _ControlState extends State<Control> {
 
   final List<Widget> _widgetOptions = <Widget>[
     bodyHome(),
-    bodySearch(),
     bodyPolls(),
-    bodyDone(),
     bodyMy(),
   ];
 
@@ -46,23 +42,15 @@ class _ControlState extends State<Control> {
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home, size: 30),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.mail),
-            label: 'Polls',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle_outline_outlined),
+            icon: Icon(Icons.add_circle_outline_outlined, size: 30),
             label: 'Post',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.done_rounded),
-            label: 'Done',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person, size: 30),
             label: 'My',
           ),
         ],

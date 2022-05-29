@@ -11,7 +11,23 @@ class _bodyHomeState extends State<bodyHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('home!')),
+      appBar: AppBar(
+        elevation: 0,
+        shadowColor: Colors.white,
+        backgroundColor: Colors.white,
+        title: Text(
+          'TPOSHARE',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ),
+      body: Column(
+        children: [
+          Container(),
+        ],
+      ),
     );
   }
 }
