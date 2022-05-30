@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutterfire_ui/auth.dart';
 import 'package:tposhare/Control.dart';
 import 'package:tposhare/LoginSignUp.dart';
 import 'package:tposhare/body_Polls.dart';

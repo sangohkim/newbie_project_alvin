@@ -25,7 +25,16 @@ class _bodyHomeState extends State<bodyHome> {
       ),
       body: Column(
         children: [
-          Container(),
+          Container(
+            padding: EdgeInsets.only(left: 15.0),
+            child: Text(
+              '최근에 업로드된 게시물이에요:)',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 15,
+              ),
+            ),
+          ),
         ],
       ),
     );

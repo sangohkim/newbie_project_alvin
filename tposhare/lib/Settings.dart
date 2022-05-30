@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:tposhare/ChangingAccount/ChangeID.dart';
 import 'package:tposhare/ChangingAccount/ChangeEmail.dart';
@@ -13,7 +14,11 @@ class mySettings extends StatelessWidget {
     Icons.mail_outlined,
     Icons.password_outlined
   ];
-  final settingList2 = <String>['로그아웃'];
+  final settingList2 = <String>['로그아웃', '회원탈퇴'];
+  final settingList2Icon = <IconData>[
+    Icons.logout_outlined,
+    Icons.delete_forever_outlined,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -103,13 +108,21 @@ class mySettings extends StatelessWidget {
               ),
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                  leading: Icon(Icons.logout_outlined, color: Colors.black),
+                  leading: Icon(settingList2Icon[index], color: Colors.black),
                   title: Text('${settingList2[index]}'),
                   textColor: Colors.red,
-                  onTap: () {
+                  onTap: () async {
                     if (index == 0) {
                       Navigator.pop(context);
                       FirebaseAuth.instance.signOut();
+                    } else if (index == 1) {
+                      Navigator.pop(context);
+                      final user = FirebaseAuth.instance.currentUser;
+                      await FirebaseFirestore.instance
+                          .collection('user')
+                          .doc(user!.uid)
+                          .delete();
+                      await user.delete();
                     }
                   },
                 );

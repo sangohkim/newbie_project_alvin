@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class bodyPolls extends StatefulWidget {
   bodyPolls({Key? key}) : super(key: key);
@@ -13,12 +14,24 @@ class bodyPolls extends StatefulWidget {
 class _bodyPollsState extends State<bodyPolls> {
   @override
   var userImage;
+  XFile? _image;
 
   String? userTime;
   String? userPlace;
   String? userOccasion;
 
   final _authentication = FirebaseAuth.instance;
+  FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
+  String photoURL = "";
+
+  void _uploadImageToStorage() async {
+    Reference storageRef = _firebaseStorage
+        .ref()
+        .child('photos/${DateTime.now().millisecondsSinceEpoch}');
+    UploadTask storageUploadTask = storageRef.putFile(File(_image!.path));
+    await storageUploadTask.whenComplete(() => null);
+    photoURL = await storageRef.getDownloadURL();
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +61,7 @@ class _bodyPollsState extends State<bodyPolls> {
                   ),
                 );
               } else {
-                // 모든 입력이 유효할 때(나중에 추가하기)
+                _uploadImageToStorage();
               }
             },
           ),
@@ -90,11 +103,14 @@ class _bodyPollsState extends State<bodyPolls> {
                     ),
                     onPressed: () async {
                       var picker = ImagePicker();
-                      var image =
-                          await picker.pickImage(source: ImageSource.gallery);
+                      var image = await picker.pickImage(
+                          source: ImageSource.gallery,
+                          maxHeight: 350,
+                          maxWidth: 650);
                       if (image != null) {
                         setState(() {
                           userImage = File(image.path);
+                          _image = image;
                         });
                       } else {
                         setState(() {
