@@ -30,7 +30,7 @@ class _bodyPollsState extends State<bodyPolls> {
         .child('photos/${DateTime.now().millisecondsSinceEpoch}');
     UploadTask storageUploadTask = storageRef.putFile(File(_image!.path));
     await storageUploadTask.whenComplete(() => null);
-    photoURL = await storageRef.getDownloadURL();
+    photoURL = await (await storageRef).getDownloadURL();
   }
 
   Widget build(BuildContext context) {
