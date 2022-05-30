@@ -91,6 +91,7 @@ class _bodyMyState extends State<bodyMy> {
               child: Container(
                 margin: EdgeInsets.only(top: 80, left: 15),
                 child: Text(
+                  key: ValueKey(10),
                   '${userName!}',
                   style: TextStyle(
                     fontSize: 50, // 나중에 ID 길이 제한도 만들기!

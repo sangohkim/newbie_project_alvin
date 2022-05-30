@@ -57,7 +57,7 @@ class _ChangeEmailState extends State<ChangeEmail> {
             Navigator.pop(context);
           },
           child: Text(
-            '취소',
+            'Cancel',
             style: TextStyle(
               color: Colors.red,
               fontSize: 20,
@@ -70,7 +70,7 @@ class _ChangeEmailState extends State<ChangeEmail> {
             Navigator.pop(context);
           },
           child: Text(
-            '완료',
+            'Apply',
             style: TextStyle(
               color: Colors.blue,
               fontSize: 20,

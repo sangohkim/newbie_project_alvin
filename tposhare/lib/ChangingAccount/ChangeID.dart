@@ -57,7 +57,7 @@ class _ChangeIDState extends State<ChangeID> {
             Navigator.pop(context);
           },
           child: Text(
-            '취소',
+            'Cancel',
             style: TextStyle(
               color: Colors.red,
               fontSize: 20,
@@ -70,7 +70,7 @@ class _ChangeIDState extends State<ChangeID> {
             Navigator.pop(context);
           },
           child: Text(
-            '적용',
+            'Apply',
             style: TextStyle(
               color: Colors.blue,
               fontSize: 20,
